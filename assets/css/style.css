@@ -1,0 +1,17 @@
+#logo {
+  color: black;
+}
+
+#city {
+  width: 200px;
+}
+
+#cardItem {
+  visibility: hidden;
+  height: fit-content;
+}
+
+#img {
+  margin-right: 5%;
+}
+

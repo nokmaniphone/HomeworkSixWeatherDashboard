@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+​
+
+<body>
+  ​
+  <form>
+    <p>
+      <label for="title">Movie Title</label>
+      <input type="text" name="title" id="title">
+    </p>
+    <p>
+      <button id="searchMovie">Search Movie</button>
+    </p>
+  </form>
+  ​
+  <div id="movie"></div>
+  ​
+  <script>
+
+    fetch('http://www.omdbapi.com/?t=Goodfellas&apikey=trilogy')
+      .then(r => r.json())
+      .then(({ Title, Year, Director, Poster, Plot }) => {
+        document.getElementById('movie').innerHTML = `
+          <img src="${Poster}" alt="${Title}">
+          <h1>${Title}</h1>
+          <h2>${Director}</h2>
+          <h3>${Year}</h3>
+          <p>${Plot}</p>
+        `
+      })
+      .catch(e => console.error(e))
+
+  </script>
+</body>
+​
+
+</html>
